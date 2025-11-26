@@ -43,7 +43,7 @@
           <img src="cursosimg/emprendedores.jpg" class="w-100" style="height:120px; object-fit:cover; border-top-left-radius:15px; border-top-right-radius:15px;">
           <div class="card-body text-center">
             <h5 class="card-title">Capacitación para emprendedores</h5>
-            <button class="btn btn-light mt-2 w-100">Solicitar</button>
+            <a href="curso.html?curso={{title}}" class="btn btn-light mt-2 w-100">Solicitar</a>
           </div>
         </div>
       </div>
@@ -53,7 +53,7 @@
           <img src="cursosimg/computacion.jpg" class="w-100" style="height:120px; object-fit:cover; border-top-left-radius:15px; border-top-right-radius:15px;">
           <div class="card-body text-center">
             <h5 class="card-title">Programa de computación básica</h5>
-            <button class="btn btn-light mt-2 w-100">Solicitar</button>
+            <a href="curso.html?curso={{title}}" class="btn btn-light mt-2 w-100">Solicitar</a>
           </div>
         </div>
       </div>
@@ -63,7 +63,7 @@
           <img src="cursosimg/habilidades.jpg" class="w-100" style="height:120px; object-fit:cover; border-top-left-radius:15px; border-top-right-radius:15px;">
           <div class="card-body text-center">
             <h5 class="card-title">Taller de habilidades digitales</h5>
-            <button class="btn btn-light mt-2 w-100">Solicitar</button>
+            <a href="curso.html?curso={{title}}" class="btn btn-light mt-2 w-100">Solicitar</a>
           </div>
         </div>
       </div>
@@ -73,7 +73,7 @@
           <img src="cursosimg/finanzas.jpg" class="w-100" style="height:120px; object-fit:cover; border-top-left-radius:15px; border-top-right-radius:15px;">
           <div class="card-body text-center">
             <h5 class="card-title">Educación Financiera</h5>
-            <button class="btn btn-light mt-2 w-100">Solicitar</button>
+            <a href="curso.html?curso={{title}}" class="btn btn-light mt-2 w-100">Solicitar</a>
           </div>
         </div>
       </div>
@@ -83,7 +83,7 @@
           <img src="cursosimg/autoempleo.jpg" class="w-100" style="height:120px; object-fit:cover; border-top-left-radius:15px; border-top-right-radius:15px;">
           <div class="card-body text-center">
             <h5 class="card-title">Autoempleo y oficios</h5>
-            <button class="btn btn-light mt-2 w-100">Solicitar</button>
+            <a href="curso.html?curso={{title}}" class="btn btn-light mt-2 w-100">Solicitar</a>
           </div>
         </div>
       </div>
@@ -93,7 +93,7 @@
           <img src="cursosimg/vial.jpg" class="w-100" style="height:120px; object-fit:cover; border-top-left-radius:15px; border-top-right-radius:15px;">
           <div class="card-body text-center">
             <h5 class="card-title">Curso de Seguridad Vial</h5>
-            <button class="btn btn-light mt-2 w-100">Solicitar</button>
+            <a href="curso.html?curso={{title}}" class="btn btn-light mt-2 w-100">Solicitar</a>
           </div>
         </div>
       </div>
@@ -103,7 +103,7 @@
           <img src="cursosimg/gastronomia.jpg" class="w-100" style="height:120px; object-fit:cover; border-top-left-radius:15px; border-top-right-radius:15px;">
           <div class="card-body text-center">
             <h5 class="card-title">Curso de Gastronomía Básica</h5>
-            <button class="btn btn-light mt-2 w-100">Solicitar</button>
+            <a href="curso.html?curso={{title}}" class="btn btn-light mt-2 w-100">Solicitar</a>
           </div>
         </div>
       </div>
@@ -113,7 +113,7 @@
           <img src="cursosimg/negocio.jpg" class="w-100" style="height:120px; object-fit:cover; border-top-left-radius:15px; border-top-right-radius:15px;">
           <div class="card-body text-center">
             <h5 class="card-title">Administración de Negocios</h5>
-            <button class="btn btn-light mt-2 w-100">Solicitar</button>
+            <a href="curso.html?curso={{title}}" class="btn btn-light mt-2 w-100">Solicitar</a>
           </div>
         </div>
       </div>
@@ -123,7 +123,7 @@
           <img src="cursosimg/atencion.jpg" class="w-100" style="height:120px; object-fit:cover; border-top-left-radius:15px; border-top-right-radius:15px;">
           <div class="card-body text-center">
             <h5 class="card-title">Atención al Ciudadano</h5>
-            <button class="btn btn-light mt-2 w-100">Solicitar</button>
+            <a href="curso.html?curso={{title}}" class="btn btn-light mt-2 w-100">Solicitar</a>
           </div>
         </div>
       </div>
@@ -133,7 +133,7 @@
           <img src="cursosimg/capacitacion.jpg" class="w-100" style="height:120px; object-fit:cover; border-top-left-radius:15px; border-top-right-radius:15px;">
           <div class="card-body text-center">
             <h5 class="card-title">Capacitación para voluntarios</h5>
-            <button class="btn btn-light mt-2 w-100">Solicitar</button>
+            <a href="curso.html?curso={{title}}" class="btn btn-light mt-2 w-100">Solicitar</a>
           </div>
         </div>
       </div>
@@ -142,5 +142,22 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+  // Tomamos todos los botones
+  document.querySelectorAll(".btn").forEach(btn => {
+    btn.addEventListener("click", function(e){
+      e.preventDefault();
+
+      // Buscamos el título del curso
+      const card = this.closest(".card");
+      const title = card.querySelector(".card-title").innerText;
+
+      // Redirigimos a la página del curso con parámetro
+      window.location.href = `curso.html?curso=${encodeURIComponent(title)}`;
+    });
+  });
+</script>
+
 </body>
 </html>
